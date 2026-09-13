@@ -1,0 +1,513 @@
+@config '../tailwind.config.js';
+@plugin 'tailwindcss-animate';
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    /* RunoFlux MaskPanel Light - Veiled Dawn */
+    --background: 250 20% 98%;
+    --foreground: 260 15% 12%;
+    --muted: 250 15% 92%;
+    --muted-foreground: 260 8% 45%;
+    --card: 0 0% 100%;
+    --card-foreground: var(--foreground);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--foreground);
+    --border: 250 12% 86%;
+    --input: 250 15% 94%;
+    --input-placeholder: 260 8% 68%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 190 94% 43%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 250 15% 92%;
+    --accent-foreground: 260 15% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+    --hover-primary: 263 70% 50%;
+    --hover-secondary: 190 90% 38%;
+    --hover-destructive: 0 84% 60%;
+    --success: 142 76% 36%;
+    --hover-success: 142 72% 29%;
+    --border-destructive-50: 0 72% 51%;
+    --bg-destructive-10: 0 72% 51%;
+    --hover-destructive-20: 0 72% 51%;
+    --bg-muted-50: 250 20% 96%;
+    --bg-accent-50: 250 15% 94%;
+    --bg-muted-40: 250 15% 92%;
+    --border-muted-40: 250 12% 86%;
+    --sidebar-background: 250 20% 96%;
+    --sidebar-foreground: 260 15% 20%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 250 15% 90%;
+    --sidebar-accent-foreground: 260 15% 12%;
+    --sidebar-border: 250 12% 86%;
+    --sidebar-ring: 262 83% 58%;
+    --sidebar-foreground-70: 260 10% 30%;
+    --snow-color: 262 80% 62%;
+    --neon-green: 142 76% 45%;
+    --background-custom: 250 20% 98%;
+    --flux-violet: 262 83% 58%;
+    --flux-cyan: 190 94% 43%;
+    --flux-obsidian: 240 15% 6%;
+    --mask-glow: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 190 94% 43%;
+    --chart-3: 280 85% 65%;
+    --chart-4: 200 90% 60%;
+    --chart-5: 250 70% 70%;
+    --card-shadow: 0 1px 3px hsl(260 15% 10% / 0.05), 0 4px 12px -2px hsl(260 15% 10% / 0.08);
+    --scrollbar-track: 250 20% 98%;
+    --scrollbar-thumb: 250 12% 80%;
+    --scrollbar-thumb-hover: 250 12% 70%;
+    --scrollbar-thumb-active: 250 12% 60%;
+  }
+
+  .dark {
+    /* RunoFlux MaskPanel Dark - Veiled Obsidian Flux */
+    --background: 240 15% 6%;
+    --foreground: 250 20% 96%;
+    --muted: 240 12% 14%;
+    --muted-foreground: 250 10% 60%;
+    --card: 240 12% 8%;
+    --card-foreground: var(--foreground);
+    --popover: 240 15% 6%;
+    --popover-foreground: var(--foreground);
+    --border: 240 10% 16%;
+    --input: 240 12% 12%;
+    --input-placeholder: 240 8% 35%;
+    --primary: 262 83% 64%;
+    --primary-foreground: 240 15% 6%;
+    --secondary: 190 94% 48%;
+    --secondary-foreground: 240 15% 6%;
+    --accent: 240 12% 14%;
+    --accent-foreground: 250 20% 96%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 262 83% 64%;
+    --radius: 0.75rem;
+    --hover-primary: 263 70% 58%;
+    --hover-secondary: 190 90% 52%;
+    --hover-destructive: 0 84% 60%;
+    --success: 142 70% 45%;
+    --hover-success: 142 72% 38%;
+    --border-destructive-50: 0 72% 51%;
+    --bg-destructive-10: 0 72% 51%;
+    --hover-destructive-20: 0 72% 51%;
+    --bg-muted-50: 240 12% 12%;
+    --bg-accent-50: 240 12% 14%;
+    --bg-muted-40: 240 12% 14%;
+    --border-muted-40: 240 10% 16%;
+    --sidebar-background: 240 15% 5%;
+    --sidebar-foreground: 250 15% 88%;
+    --sidebar-primary: 262 83% 64%;
+    --sidebar-primary-foreground: 240 15% 6%;
+    --sidebar-accent: 240 12% 12%;
+    --sidebar-accent-foreground: 250 20% 96%;
+    --sidebar-border: 240 10% 14% / 0.8;
+    --sidebar-ring: 262 83% 64%;
+    --sidebar-foreground-70: 250 15% 75%;
+    --snow-color: 262 80% 70%;
+    --neon-green: 142 76% 50%;
+    --background-custom: 240 15% 4%;
+    --flux-violet: 262 83% 64%;
+    --flux-cyan: 190 94% 48%;
+    --flux-obsidian: 240 15% 6%;
+    --mask-glow: 262 83% 64%;
+    --chart-1: 262 83% 64%;
+    --chart-2: 190 94% 48%;
+    --chart-3: 280 85% 70%;
+    --chart-4: 200 90% 65%;
+    --chart-5: 250 70% 75%;
+    --card-shadow: 0 1px 3px hsl(0 0% 0% / 0.3), 0 8px 24px -4px hsl(262 83% 58% / 0.15);
+    --scrollbar-track: 240 15% 6%;
+    --scrollbar-thumb: 240 8% 22%;
+    --scrollbar-thumb-hover: 240 8% 32%;
+    --scrollbar-thumb-active: 240 8% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html[data-density='compact'] {
+    font-size: 15px;
+  }
+
+  html[data-density='comfortable'] {
+    font-size: 16px;
+  }
+
+  html[data-density='spacious'] {
+    font-size: 17.5px;
+  }
+
+  html[data-surface='flat'] {
+    --card-shadow: none;
+  }
+
+  html[data-surface='subtle'] {
+    --card-shadow: 0 1px 2px hsl(0 0% 0% / 0.04), 0 3px 8px -2px hsl(0 0% 0% / 0.08);
+  }
+
+  html.dark[data-surface='subtle'] {
+    --card-shadow: 0 1px 3px hsl(0 0% 0% / 0.25), 0 6px 16px -2px hsl(262 83% 58% / 0.12);
+  }
+
+  html[data-surface='elevated'] {
+    --card-shadow: 0 1px 3px hsl(0 0% 0% / 0.08), 0 8px 24px -4px hsl(0 0% 0% / 0.12);
+  }
+
+  html.dark[data-surface='elevated'] {
+    --card-shadow: 0 2px 8px hsl(0 0% 0% / 0.4), 0 12px 32px -4px hsl(262 83% 58% / 0.2);
+  }
+
+  body {
+    @apply bg-background font-body text-foreground;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--scrollbar-thumb) / 0.4) transparent;
+    /* Subtle flux gradient overlay for RunoFlux identity */
+    background-image: 
+      radial-gradient(ellipse at top left, hsl(var(--flux-violet) / 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, hsl(var(--flux-cyan) / 0.06) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--scrollbar-thumb) / 0.4) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--scrollbar-thumb) / 0.4);
+    border: none;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--scrollbar-thumb) / 0.6);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: hsl(var(--scrollbar-thumb-active) / 0.7);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-sidebar='content'] {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  [data-sidebar='content']::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dashboard-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  .dashboard-scroll:hover,
+  .dashboard-scroll:focus-within,
+  .dashboard-scroll:active {
+    scrollbar-color: hsl(var(--scrollbar-thumb) / 0.45) transparent;
+  }
+
+  .dashboard-scroll::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  .dashboard-scroll:hover::-webkit-scrollbar-thumb,
+  .dashboard-scroll:focus-within::-webkit-scrollbar-thumb,
+  .dashboard-scroll:active::-webkit-scrollbar-thumb {
+    background: hsl(var(--scrollbar-thumb) / 0.4);
+  }
+
+  .scrollbar-primary::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.6);
+  }
+
+  .scrollbar-primary::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
+  .scrollbar-muted::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+
+  .scrollbar-muted::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  [data-rbd-draggable-id],
+  [data-rbd-drag-handle-draggable-id],
+  [data-dnd-kit-drag-overlay] {
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  [data-dnd-kit-drag-overlay] {
+    position: fixed !important;
+    z-index: 9999 !important;
+    max-width: calc(100vw - 20px) !important;
+    max-height: calc(100vh - 20px) !important;
+  }
+
+  .sidebar {
+    z-index: 40;
+  }
+
+  .sidebar-overlay {
+    z-index: 30;
+  }
+
+  .modal-overlay {
+    z-index: 50;
+  }
+
+  .dropdown-content {
+    z-index: 60;
+  }
+
+  .tooltip {
+    z-index: 70;
+  }
+
+  [data-radix-dialog-content] {
+    z-index: 50 !important;
+  }
+
+  [data-radix-select-content] {
+    z-index: 60 !important;
+  }
+
+  @media (max-width: 1024px) {
+    .sidebar {
+      z-index: 45;
+    }
+  }
+
+  [data-sidebar='sidebar'][data-mobile='true'] {
+    z-index: 50;
+  }
+
+  .group\/sidebar-wrapper[data-state='collapsed'] {
+    --sidebar-width: 3rem;
+  }
+
+  .group\/sidebar-wrapper[data-state='collapsed'] ~ main {
+    margin-left: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .group\/sidebar-wrapper[data-state='collapsed'] ~ main {
+      margin-left: 0;
+    }
+  }
+
+  [data-sidebar='sidebar'][data-collapsible='icon'] .sidebar-icon-button {
+    @apply border-sidebar-border bg-sidebar-accent/50 hover:border-sidebar-accent-foreground/20 hover:bg-sidebar-accent h-8 w-8 rounded-md border transition-all duration-200;
+  }
+
+  [data-sidebar='sidebar'][data-collapsible='icon'] [data-radix-popover-content] {
+    @apply border-sidebar-border bg-sidebar shadow-lg;
+  }
+
+  [data-sidebar='sidebar'] {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .sidebar-icon-only {
+    @apply flex h-8 w-8 items-center justify-center rounded-md;
+  }
+
+  /* MaskPanel Unique Effects */
+  .mask-glow {
+    box-shadow: 0 0 20px hsl(var(--flux-violet) / 0.3), 0 0 40px hsl(var(--flux-violet) / 0.1);
+  }
+
+  .flux-border {
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                linear-gradient(135deg, hsl(var(--flux-violet)), hsl(var(--flux-cyan))) border-box;
+  }
+
+  .flux-text {
+    background: linear-gradient(135deg, hsl(var(--flux-violet)), hsl(var(--flux-cyan)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .flux-bg {
+    background: linear-gradient(135deg, hsl(var(--flux-violet) / 0.1), hsl(var(--flux-cyan) / 0.1));
+  }
+
+  .rune-pattern {
+    background-image: 
+      radial-gradient(circle at 1px 1px, hsl(var(--flux-violet) / 0.15) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .snowfall {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .snowfall ~ * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .snowfall__item {
+    position: absolute;
+    left: var(--snow-x);
+    top: -12vh;
+    width: var(--snow-size);
+    height: var(--snow-size);
+    opacity: var(--snow-opacity);
+    animation: snowfall-fall var(--snow-duration) linear infinite;
+    animation-delay: var(--snow-delay);
+  }
+
+  .snowfall__sway {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: hsl(var(--snow-color));
+    animation: snowfall-sway var(--snow-sway-duration) ease-in-out infinite;
+    animation-delay: var(--snow-delay);
+  }
+
+  .snowfall__dot {
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background: currentColor;
+  }
+
+  .snowfall__icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: currentColor;
+  }
+
+  @keyframes snowfall-fall {
+    0% {
+      transform: translate3d(0, -12vh, 0);
+    }
+    100% {
+      transform: translate3d(0, 112vh, 0);
+    }
+  }
+
+  @keyframes snowfall-sway {
+    0% {
+      transform: translateX(calc(var(--snow-sway) * -1));
+    }
+    50% {
+      transform: translateX(var(--snow-sway));
+    }
+    100% {
+      transform: translateX(calc(var(--snow-sway) * -1));
+    }
+  }
+
+  @keyframes flux-pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes mask-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-flux-pulse {
+    animation: flux-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-mask-shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--flux-violet) / 0.2), transparent);
+    background-size: 200% 100%;
+    animation: mask-shimmer 2.5s linear infinite;
+  }
+}
+
+@layer utilities {
+  .scrollbar-default {
+    scrollbar-width: auto;
+    scrollbar-color: hsl(var(--scrollbar-thumb)) hsl(var(--scrollbar-track));
+  }
+
+  .scrollbar-thin-util {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--scrollbar-thumb)) hsl(var(--scrollbar-track));
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
