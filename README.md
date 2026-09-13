@@ -36,9 +36,16 @@
   - [✨ Unique Features - RunoFlux Edition](#-unique-features---runoflux-edition)
 - [🎭 Brand Identity](#-brand-identity)
 - [🚀 Installation](#-installation)
+  - [🚂 Railway Deployment](#-railway-deployment)
 - [🎨 UI/UX Design System](#-uiux-design-system)
 - [🔧 Unique Capabilities](#-unique-capabilities)
 - [📚 Documentation](#-documentation)
+
+<p align="center">
+  <a href="https://railway.app/template/github/amirparsa1/MaskPanel">
+    <img src="https://railway.app/button.svg" alt="Deploy on Railway" />
+  </a>
+</p>
 
 ---
 
@@ -159,6 +166,36 @@ bun run dev
 ```
 
 **Access:** `https://YOUR_DOMAIN:8000/dashboard/` - You'll see the new Obsidian Flux UI with Ghost Mode active.
+
+### 🚂 Railway Deployment
+
+**Yes! MaskPanel works perfectly on Railway** - with Postgres and all Flux features. See full guide in `RAILWAY.md`.
+
+**Quick Deploy:**
+
+1. Fork this repo
+2. Go to https://railway.app/new → Deploy from GitHub
+3. Select your fork → Add PostgreSQL plugin
+4. Set Variables:
+
+```env
+SQLALCHEMY_DATABASE_URL=postgresql+asyncpg://postgres:pass@postgres.railway.internal:5432/railway
+ROLE=all-in-one
+NATS_ENABLED=0
+VITE_BASE_API=/
+```
+
+5. Generate domain → `https://your-app.up.railway.app/dashboard/`
+6. Create owner: `railway run python maskpanel-cli.py generate-temp-key` then use Owner access in login
+
+**Files for Railway:**
+- `Dockerfile` - Multi-stage (Python + Node 22 + Bun) - builds dashboard and backend
+- `railway.json` - Healthcheck at `/api/system`
+- `nixpacks.toml` - Fallback builder
+- `Procfile` - For Heroku/Render too
+- `start.sh` - Handles `PORT` env from Railway
+
+Full Persian guide: [`RAILWAY.md`](./RAILWAY.md) - step by step with troubleshooting.
 
 ---
 

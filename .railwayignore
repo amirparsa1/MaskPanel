@@ -1,0 +1,14 @@
+# Railway ignore - don't upload heavy stuff
+node_modules/
+dashboard/node_modules/
+dashboard/build/
+__pycache__/
+*.pyc
+.venv/
+.git/
+.github/
+tests/
+assets/*.mp4
+assets/*.mov
+*.log
+db.sqlite3
