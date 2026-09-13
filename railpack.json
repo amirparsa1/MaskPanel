@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "version": "1",
+  "packages": {
+    "python": "3.14",
+    "node": "22",
+    "bun": "latest"
+  },
+  "steps": {
+    "install:python": {
+      "inputs": [
+        { "include": ["pyproject.toml", "uv.lock"] }
+      ],
+      "commands": [
+        { "cmd": "python -m venv --copies /opt/venv && . /opt/venv/bin/activate && pip install uv && uv sync --frozen --no-dev" }
+      ]
+    },
+    "install:node": {
+      "inputs": [
+        { "include": ["dashboard/package.json", "dashboard/bun.lock", "dashboard/package-lock.json"] }
+      ],
+      "commands": [
+        { "cmd": "cd dashboard && bun install --frozen-lockfile || npm install --legacy-peer-deps" }
+      ]
+    },
+    "build:dashboard": {
+      "inputs": [
+        { "include": ["dashboard/**"], "exclude": ["dashboard/node_modules", "dashboard/build"] }
+      ],
+      "commands": [
+        { "cmd": "cd dashboard && VITE_BASE_API=/ bun run build || npm run build" },
+        { "cmd": "cp dashboard/build/index.html dashboard/build/404.html || true" },
+        { "cmd": "ls -lh dashboard/build/ | head -n 20" }
+      ]
+    },
+    "build:python": {
+      "commands": [
+        { "cmd": "echo 'MaskPanel by RunoFlux - Python build complete'" }
+      ]
+    }
+  },
+  "deploy": {
+    "startCommand": "/code/start.sh",
+    "baseDir": "/code"
+  }
+}

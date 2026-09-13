@@ -9,6 +9,6 @@
     "healthcheckPath": "/api/system",
     "healthcheckTimeout": 300,
     "restartPolicyType": "onFailure",
-    "restartPolicyMaxRetries": 3
+    "restartPolicyMaxRetries": 5
   }
 }

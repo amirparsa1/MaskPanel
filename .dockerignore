@@ -1,56 +1,91 @@
+# MaskPanel by RunoFlux - Dockerignore for Railway
+# Optimized to allow Railway Dockerfile builds
+
+# Node modules - will be installed in dashboard-builder stage
 **/node_modules
+dashboard/node_modules
+
+# Logs
 *.log
-*.md
 *.pyc
 *.pyd
 *.pyo
-.docker*
-.env*
-.git*
-.idea
-.vscode
-Dockerfile*
 __pycache__
-db.sqlite3
-db.sqlite3-journal
-docker-compose*.yml
-v2ray-core
-xray-core
-tests
-venv*
-.venv*
-LICENSE
-install_service.sh
-PasarGuard.code-workspace
-scripts
-
-# Dev tooling / CI (not used at runtime)
-Makefile
-.github
-.pre-commit-config.yaml
-.editorconfig
-
-# Caches and local artifacts
 .pytest_cache
 .ruff_cache
 .uv-cache
 .mypy_cache
 
-# Tests config and local databases
-pytest.ini
+# Git and IDE
+.git
+.gitignore
+.idea
+.vscode
+*.code-workspace
+
+# Env - Railway provides via variables
+.env
+.env.local
+.env.development
+.env.production
+
+# DB
+db.sqlite3
+db.sqlite3-journal
 test.db
 *.db-journal
 
-# AI / planning scratch output
-.AGENT
-graphify-out
+# Caches
+*.pyc
+venv*
+.venv*
 
-# Dashboard: the frontend is prebuilt in CI (build.yml / build-dev.yml) and the
-# compiled output is copied into the context as dashboard/build/. At runtime only
-# the Python integration module and the compiled assets are used (build() never
-# runs because dashboard/build/ already exists), so exclude all source/tooling.
-# Excluding+re-including direct children avoids Docker's "can't re-include a file
-# under an excluded parent directory" limitation.
-dashboard/*
-!dashboard/__init__.py
-!dashboard/build
+# Docs - keep README for branding but ignore others for smaller context
+README-fa.md
+README-ru.md
+README-zh-cn.md
+LICENSE
+CONTRIBUTING.md
+
+# CI
+.github
+
+# Scripts - keep railway_setup.py
+# scripts/ - we need this for Railway, so don't ignore
+
+# Tests
+tests
+
+# Assets - keep logos but ignore videos
+assets/*.mp4
+assets/*.mov
+
+# Dashboard source - we build it in Dockerfile stage, but we need package files
+# So ignore only heavy build output, keep source for Railpack fallback
+# dashboard/build - keep for runtime, ignore for build context? Actually we build it, so ignore existing build
+# We will NOT ignore dashboard/* anymore - Railway needs to see package.json
+
+# For Docker multi-stage, we want dashboard source, so don't ignore
+# Only ignore prebuilt if exists to force rebuild
+# dashboard/build
+
+# Misc
+v2ray-core
+xray-core
+install_service.sh
+PasarGuard.code-workspace
+
+# Allow Dockerfile for Railway!
+!Dockerfile
+!Dockerfile.*
+!railway.json
+!railway.toml
+!nixpacks.toml
+!railpack.json
+!start.sh
+!cli_wrapper.sh
+!tui_wrapper.sh
+!healthcheck.sh
+!Procfile
+!RAILWAY.md
+!RUNOFLUX.md
